@@ -1,0 +1,105 @@
+Assessment(a1):
+  weight: 70
+  chest: 40
+  thigh: 30
+  upperArm: 16
+  waist: 50
+  hips: 60
+
+Assessment(a2):
+  weight: 60
+  chest: 35
+  thigh: 25
+  upperArm: 15
+  waist: 45
+  hips: 55
+
+Assessment(a3):
+  weight: 55
+  chest: 30
+  thigh: 20
+  upperArm: 14
+  waist: 40
+  hips: 50
+
+Assessment(a4):
+  weight: 50
+  chest: 35
+  thigh: 19.2
+  upperArm: 13
+  waist: 35
+  hips: 40
+
+Assessment(a5):
+  weight: 49
+  chest: 34.1
+  thigh: 18
+  upperArm: 13
+  waist: 34
+  hips: 39.5
+
+Assessment(a6):
+  weight: 48
+  chest: 35
+  thigh: 19
+  upperArm: 13
+  waist: 35
+  hips: 38.7
+
+Member(m1):
+  firstname: Homer
+  lastname: Simpson
+  email: homer@simpson.com
+  password: secret
+  address: 742 Evergreen Terrace, Springfield
+  gender: Male
+  height: 2.5
+  startingWeight: 72
+  assessments:
+  - a1
+  - a2
+
+Member(m2):
+  firstname: Marge
+  lastname: Simpson
+  email: marge@simpson.com
+  password: secret
+  address: 742 Evergreen Terrace, Springfield
+  gender: Female
+  height: 2.1
+  startingWeight: 56
+  assessments:
+  - a3
+  - a4
+
+Member(m3):
+  firstname: Lisa
+  lastname: Simpson
+  email: lisa@simpson.com
+  password: secret
+  address: 742 Evergreen Terrace, Springfield
+  gender: Female
+  height: 2.0
+  startingWeight: 50
+  assessments:
+  - a5
+  - a6
+
+Trainer(t1):
+  firstname: Brunella
+  lastname: Pommelhorst
+  email: bru@simpson.com
+  password: secret
+  address: 123 Seasame St, Springfield
+  gender: Female
+  specialty: brute force
+
+Trainer(t2):
+  firstname: Coach
+  lastname: Krupt
+  email: krupt@simpson.com
+  password: secret
+  address: 321 Mulholland Drive, Springfield
+  gender: Male
+  speciality: strength and conditioning
+

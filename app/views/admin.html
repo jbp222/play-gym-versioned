@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Admin' /}
+
+<section class="ui raised segment">
+  <header class="ui header">
+    Todo List
+  </header>
+  <table class="ui fixed table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Todo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div class="ui bulleted list">
+      #{list items:todolist, as:'todo'}
+        <tr>
+          <td> ${todo.id} </td>
+          <td> ${todo.title} </td>
+        </tr>
+      #{/list}
+    </div>
+    </tbody>
+  </table>
+
+</section>

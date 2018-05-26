@@ -1,0 +1,73 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{trainermenu id:"dashboard" /}
+
+<section class="ui raised segment">
+  <div class="ui center aligned four column grid">
+    <div class="column">
+      <i class="huge user icon"></i>
+      <br>
+      <span style="text-transform: uppercase;">${member.firstname} ${member.lastname}</span>
+    </div>
+    <div class="column">
+    #{if isIdealBodyWeight == true}
+      <i class="huge green sliders horizontal icon"></i>
+    #{/if}
+    #{elseif isIdealBodyWeight == false}
+      <i class="huge red sliders horizontal icon"></i>
+    #{/elseif}
+      <br>
+      IDEAL WEIGHT INDICATOR
+    </div>
+    <div class="column">
+      <i class="huge heartbeat icon"></i><span style="font-size: 4em; vertical-align: middle;">${bmi}</span>
+      <br>
+      <span>BMI</span>
+    </div>
+    <div class="column">
+      <i class="huge user doctor icon"></i>
+      <br>
+      <span style="text-transform: uppercase;">${bmiCategory}</span>
+    </div>
+  </div>
+</section>
+
+
+#{list items:member.assessments, as:'assessment'}
+  <section class="ui raised segment">
+    <table class="ui fixed celled table">
+      <thead>
+      <tr>
+        <th>Weight</th>
+        <th>Chest</th>
+        <th>Thigh</th>
+        <th>Upper Arm</th>
+        <th>Waist</th>
+        <th>Hips</th>
+        <th>Comment</th>
+      </tr>
+      </thead>
+      <tbody>
+      <div class="ui bulleted list">
+        <tr>
+          <td> ${assessment.weight} </td>
+          <td> ${assessment.chest} </td>
+          <td> ${assessment.thigh} </td>
+          <td> ${assessment.upperArm} </td>
+          <td> ${assessment.waist} </td>
+          <td> ${assessment.hips} </td>
+          <td> ${assessment.comment} </td>
+      </div>
+      </tbody>
+    </table>
+  </section>
+
+  <form class="ui stacked segment form" action="/dashboard/addcomment/${member.id}/${assessment.id}" method="POST">
+    <div class="field">
+      <label>Comments</label>
+      <input type="text" name="comment">
+    </div>
+    <button class="ui blue submit button">Update</button>
+  </form>
+#{/list}
