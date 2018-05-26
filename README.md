@@ -1,3 +1,5 @@
+Name : Julianne Daly
+Student Number: 20082215
 
-if and else if built-in template tags:
-https://www.playframework.com/documentation/1.2.x/tags
+github repo link: https://github.com/jdaly222/play-gym-versioned
+Deployed app link: https://play-gym-jdaly.herokuapp.com/
