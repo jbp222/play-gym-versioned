@@ -5,26 +5,25 @@
 # Home page
 GET    /                                                Start.index
 
+GET    /dashboard/deletemember/{memberId}               Dashboard.deleteMember
 GET    /dashboard                                       Dashboard.index
-POST   /dashboard/addassessment                         Dashboard.addAssessment
 GET    /dashboard/deleteassessment/{assessmentId}       Dashboard.deleteAssessment
 GET    /listassessments/{memberId}                      Dashboard.listAssessments
 POST   /dashboard/addcomment/{memberId}/{assessmentId}  Dashboard.addComment
-GET    /dashboard/deletemember/{memberId}               Dashboard.deleteMember
+POST   /dashboard/addassessment                         Dashboard.addAssessment
 
-GET    /updatemember                                    Accounts.updateMember
-POST   /saveupdate                                      Accounts.saveUpdate
 GET    /trainer/members                                 Accounts.listMembers
-
-GET    /admin                                           Admin.index
-GET    /about                                           About.index
-
 GET    /signup                                          Accounts.signup
 GET    /login                                           Accounts.login
+GET    /logout                                          Accounts.logout
+GET    /updatemember                                    Accounts.updateMember
+POST   /saveupdate                                      Accounts.saveUpdate
 POST   /register                                        Accounts.register
 POST   /authenticate                                    Accounts.authenticate
-GET    /logout                                          Accounts.logout
 
+GET    /admin                                           Admin.index
+
+GET    /about                                           About.index
 
 # Ignore favicon requests
 GET     /favicon.ico                                    404

@@ -1,6 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
-
 #{menu id:"dashboard"/}
 
 <section class="ui raised segment">
@@ -68,31 +67,31 @@
 <section class="ui raised segment">
   <table class="ui fixed celled table">
     <thead>
-    <tr>
-      <th>Weight</th>
-      <th>Chest</th>
-      <th>Thigh</th>
-      <th>Upper Arm</th>
-      <th>Waist</th>
-      <th>Hips</th>
-      <th>Comment</th>
-      <th></th>
-    </tr>
+      <tr>
+        <th>Weight</th>
+        <th>Chest</th>
+        <th>Thigh</th>
+        <th>Upper Arm</th>
+        <th>Waist</th>
+        <th>Hips</th>
+        <th>Comment</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-    <div class="ui bulleted list">
-      #{list items:assessments, as:'assessment'}
-      <tr>
-        <td> ${assessment.weight} </td>
-        <td> ${assessment.chest} </td>
-        <td> ${assessment.thigh} </td>
-        <td> ${assessment.upperArm} </td>
-        <td> ${assessment.waist} </td>
-        <td> ${assessment.hips} </td>
-        <td> ${assessment.comment} </td>
-        <td class="center aligned"><a href="/dashboard/deleteassessment/${assessment.id}" title="delete"><i class="bordered inverted grey trash icon"></i></a> </td>
-      #{/list}
-    </div>
+      <div class="ui bulleted list">
+        #{list items:assessments, as:'assessment'}
+        <tr>
+          <td> ${assessment.weight} </td>
+          <td> ${assessment.chest} </td>
+          <td> ${assessment.thigh} </td>
+          <td> ${assessment.upperArm} </td>
+          <td> ${assessment.waist} </td>
+          <td> ${assessment.hips} </td>
+          <td> ${assessment.comment} </td>
+          <td class="center aligned"><a href="/dashboard/deleteassessment/${assessment.id}" title="delete"><i class="bordered inverted grey trash icon"></i></a> </td>
+        #{/list}
+      </div>
     </tbody>
   </table>
 </section>

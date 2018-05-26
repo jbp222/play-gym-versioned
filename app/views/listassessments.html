@@ -1,6 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
-
 #{trainermenu id:"dashboard" /}
 
 <section class="ui raised segment">
@@ -38,27 +37,27 @@
   <section class="ui raised segment">
     <table class="ui fixed celled table">
       <thead>
-      <tr>
-        <th>Weight</th>
-        <th>Chest</th>
-        <th>Thigh</th>
-        <th>Upper Arm</th>
-        <th>Waist</th>
-        <th>Hips</th>
-        <th>Comment</th>
-      </tr>
+        <tr>
+          <th>Weight</th>
+          <th>Chest</th>
+          <th>Thigh</th>
+          <th>Upper Arm</th>
+          <th>Waist</th>
+          <th>Hips</th>
+          <th>Comment</th>
+        </tr>
       </thead>
       <tbody>
-      <div class="ui bulleted list">
-        <tr>
-          <td> ${assessment.weight} </td>
-          <td> ${assessment.chest} </td>
-          <td> ${assessment.thigh} </td>
-          <td> ${assessment.upperArm} </td>
-          <td> ${assessment.waist} </td>
-          <td> ${assessment.hips} </td>
-          <td> ${assessment.comment} </td>
-      </div>
+        <div class="ui bulleted list">
+          <tr>
+            <td> ${assessment.weight} </td>
+            <td> ${assessment.chest} </td>
+            <td> ${assessment.thigh} </td>
+            <td> ${assessment.upperArm} </td>
+            <td> ${assessment.waist} </td>
+            <td> ${assessment.hips} </td>
+            <td> ${assessment.comment} </td>
+        </div>
       </tbody>
     </table>
   </section>
