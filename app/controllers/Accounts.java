@@ -1,41 +1,34 @@
 package controllers;
 
-import models.Assessment;
 import models.Member;
 import models.Trainer;
 import play.Logger;
 import play.mvc.Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Accounts extends Controller
-{
-  public static void signup()
-  {
+public class Accounts extends Controller {
+  public static void signup() {
     render("signup.html");
   }
 
-  public static void login()
-  {
+  public static void login() {
     render("login.html");
   }
 
   public static void register(String firstname, String lastname, String email, String password, String address, String gender,
-                              double height, double startingWeight)
-  {
+                              double height, double startingWeight) {
     Logger.info("Registering new user " + firstname + " " + lastname);
     Member member = new Member(firstname, lastname, email, password, address, gender, height, startingWeight);
     member.save();
     redirect("/");
   }
 
-  public static void authenticate(String email, String password)
-  {
+  public static void authenticate(String email, String password) {
     Logger.info("Attempting to authenticate with " + email + ":" + password);
     Member member = null;
     Trainer trainer = null;
-    if(Member.findByEmail(email) != null) {
+    if (Member.findByEmail(email) != null) {
       member = Member.findByEmail(email);
     } else if (Trainer.findByEmail(email) != null) {
       trainer = Trainer.findByEmail(email);
@@ -43,25 +36,23 @@ public class Accounts extends Controller
     if ((member != null) && (member.checkPassword(password) == true)) {
       Logger.info("Authentication successful");
       session.put("logged_in_Memberid", member.id);
-      redirect ("/dashboard");
+      redirect("/dashboard");
     } else if ((trainer != null) && (trainer.checkPassword(password) == true)) {
       Logger.info("Authentication successful");
       session.put("logged_in_Trainerid", trainer.id);
-      redirect ("/trainer/members");
+      redirect("/trainer/members");
     } else {
       Logger.info("Authentication failed");
       redirect("/login");
     }
   }
 
-  public static void logout()
-  {
+  public static void logout() {
     session.clear();
-    redirect ("/");
+    redirect("/");
   }
 
-  public static Member getLoggedInMember()
-  {
+  public static Member getLoggedInMember() {
     Member member = null;
     if (session.contains("logged_in_Memberid")) {
       String memberId = session.get("logged_in_Memberid");
@@ -72,8 +63,7 @@ public class Accounts extends Controller
     return member;
   }
 
-  public static Trainer getLoggedInTrainer()
-  {
+  public static Trainer getLoggedInTrainer() {
     Trainer trainer = null;
     if (session.contains("logged_in_Trainerid")) {
       String trainerId = session.get("logged_in_Trainerid");
@@ -84,22 +74,21 @@ public class Accounts extends Controller
     return trainer;
   }
 
-  public static void listMembers()
-  {
+  public static void listMembers() {
     Trainer trainer = getLoggedInTrainer();
     List<Member> members = Member.findAll();
+    Logger.info("List members loaded");
     render("listmembers.html", members);
   }
 
-  public static void updateMember()
-  {
+  public static void updateMember() {
     Member member = getLoggedInMember();
+    Logger.info("loading member details");
     render("updatemember.html", member);
   }
 
   public static void saveUpdate(String firstname, String lastname, String email, String password, String address, String gender,
-                                double height, double startingWeight)
-  {
+                                double height, double startingWeight) {
     Logger.info("Updating user " + firstname + " " + lastname);
     Member member = getLoggedInMember();
     member.setFirstname(firstname);
@@ -111,6 +100,7 @@ public class Accounts extends Controller
     member.setHeight(height);
     member.setStartingWeight(startingWeight);
     member.save();
+    Logger.info("Member update saved for: " + firstname + " " + lastname);
     redirect("/");
   }
 }

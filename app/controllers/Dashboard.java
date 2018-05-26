@@ -8,10 +8,8 @@ import play.mvc.Controller;
 
 import java.util.List;
 
-public class Dashboard extends Controller
-{
-  public static void index()
-  {
+public class Dashboard extends Controller {
+  public static void index() {
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Assessment> assessments = member.assessments;
@@ -21,8 +19,7 @@ public class Dashboard extends Controller
     render("dashboard.html", member, assessments, bmi, bmiCategory, isIdealBodyWeight);
   }
 
-  public static void addAssessment(double weight, double chest, double thigh, double upperArm, double waist, double hips)
-  {
+  public static void addAssessment(double weight, double chest, double thigh, double upperArm, double waist, double hips) {
     Member member = Accounts.getLoggedInMember();
     Assessment assessment = new Assessment(weight, chest, thigh, upperArm, waist, hips);
     member.assessments.add(assessment);
@@ -31,8 +28,7 @@ public class Dashboard extends Controller
     redirect("/dashboard");
   }
 
-  public static void deleteAssessment(long assessmentId)
-  {
+  public static void deleteAssessment(long assessmentId) {
     Member member = Accounts.getLoggedInMember();
     Assessment assessment = Assessment.findById(assessmentId);
     member.assessments.remove(assessment);
@@ -42,8 +38,7 @@ public class Dashboard extends Controller
     redirect("/dashboard");
   }
 
-  public static void listAssessments(long memberId)
-  {
+  public static void listAssessments(long memberId) {
     Logger.info("Rendering member assessments");
     Trainer trainer = Accounts.getLoggedInTrainer();
     Member member = Member.findById(memberId);
@@ -53,8 +48,7 @@ public class Dashboard extends Controller
     render("listassessments.html", member, bmi, bmiCategory, isIdealBodyWeight);
   }
 
-  public static void addComment(long memberId, long assessmentId, String comment)
-  {
+  public static void addComment(long memberId, long assessmentId, String comment) {
     Trainer trainer = Accounts.getLoggedInTrainer();
     Assessment assessment = Assessment.findById(assessmentId);
     assessment.setComment(comment);
@@ -63,8 +57,7 @@ public class Dashboard extends Controller
     redirect("/listassessments/" + memberId);
   }
 
-  public static void deleteMember(long memberId)
-  {
+  public static void deleteMember(long memberId) {
     Trainer trainer = Accounts.getLoggedInTrainer();
     Member member = Member.findById(memberId);
     member.delete();

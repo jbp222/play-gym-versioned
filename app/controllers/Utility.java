@@ -7,7 +7,7 @@ public class Utility {
 
   public static double calculateBMI(Member member) {
     // last index is element size - 1 to get last index
-    if(member.assessments.size() > 0){
+    if (member.assessments.size() > 0) {
       int lastIndex = member.assessments.size() - 1;
       Assessment lastAssessment = member.assessments.get(lastIndex);
       return lastAssessment.getWeight() / (member.getHeight() * member.getHeight());
@@ -45,13 +45,13 @@ public class Utility {
       inchesOver5feet = heightInInches - 60;
     }
     double idealWeight;
-    if(member.getGender().equals("MALE")) {
+    if (member.getGender().equals("MALE")) {
       idealWeight = maleIdealWeight + (2.3 * inchesOver5feet);
     } else {
       idealWeight = femaleIdealWeight + (2.3 * inchesOver5feet);
     }
     boolean isIdealWeight;
-    if(member.assessments.size() > 0) {
+    if (member.assessments.size() > 0) {
       int lastIndex = member.assessments.size() - 1;
       // if weight between these 2 numbers
       if (member.assessments.get(lastIndex).getWeight() >= (idealWeight - 0.2) &&
